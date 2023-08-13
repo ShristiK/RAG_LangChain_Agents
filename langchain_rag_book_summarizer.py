@@ -24,6 +24,18 @@ if openai_api_key:
 else:
     load_dotenv(override=True)
 
+pinecone_api_key = st.sidebar.text_input('Please enter your Pinecone API Key', type='password')
+if pinecone_api_key:
+    os.environ['PINECONE_API_KEY'] = pinecone_api_key
+else:
+    load_dotenv(override=True)
+
+pinecone_env = st.sidebar.text_input('Please enter your Pinecone environment', type='password')
+if pinecone_env:
+    os.environ['PINECONE_ENV'] = pinecone_env
+else:
+    load_dotenv(override=True)
+
 
 # initializing pinecone and creating a pinecone index
 def initialize_pinecone_index(index_name='reading-list-summarizer'):
